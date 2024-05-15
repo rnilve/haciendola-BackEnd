@@ -1,0 +1,40 @@
+{
+  "name": "examenback-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/index.ts",
+    "db:script": "ts-node src/database/core/createScripts.ts",
+    "db:migrate": "ts-node src/database/core/migrateScripts.ts",
+    "db:data": "ts-node src/database/core/migrateData.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.11",
+    "@types/pg": "^8.11.6",
+    "express": "^4.19.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5",
+    "@types/jsonwebtoken": "9.0.1",
+    "@types/multer": "1.4.7"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "pg": "8.11.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "9.0.0",
+    "bcrypt": "5.1.0",
+    "multer": "1.4.5-lts.1",
+    "exceljs": "4.3.0"
+  }
+}
