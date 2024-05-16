@@ -1,5 +1,5 @@
 import { ExecQuery } from "../database/connection";
-import { ProductT } from "../types/ProductT";
+import { PaginationT, ProductPaginationT, ProductT } from "../types/ProductT";
 import { mapQuery } from "../utils/mapQuery";
 
 
@@ -58,4 +58,26 @@ export class Product {
     const rows = result?.rows as ProductT[];
     return rows;
   }
+
+  async allProductsPagination(pageNumber = 1, pageSize = 10) {
+    const offset = (pageNumber - 1) * pageSize;
+    const query = `SELECT * FROM products ORDER BY id ASC LIMIT ${pageSize} OFFSET ${offset}`;
+    const result = await this.execQuery(query);
+    const rows = result?.rows as ProductT[];
+    const countQuery = 'SELECT COUNT(*) FROM products';
+    const countResult = await this.execQuery(countQuery);
+    const totalCount = parseInt(countResult?.rows[0].count, 10);
+    const pagination: PaginationT = {
+      currentPage: pageNumber,
+      pageSize: pageSize,
+      totalCount: totalCount,
+  }
+
+    const resultProducts : ProductPaginationT ={
+      products:rows,
+      pagination:pagination
+    } 
+
+    return resultProducts;
+}
 }

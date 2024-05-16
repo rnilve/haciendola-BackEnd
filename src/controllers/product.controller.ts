@@ -17,6 +17,13 @@ export const getProducts = async (req: Request, res: Response) => {
   return res.resp({ data: result });
 };
 
+export const getProductsLimit = async (req: Request, res: Response) => {
+  const product = new Product(req.execQuery);
+  const result = await product.allProductsPagination(req.body.page, req.body.size);
+  return res.resp({ data: result });
+};
+
+
 export const getProduct = async (req: Request, res: Response) => {
   const product = new Product(req.execQuery);
   if (!validateNumber(req.params.id)) throw 'BE101';
