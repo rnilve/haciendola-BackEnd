@@ -9,15 +9,16 @@ import {
   getProductsLimit
 } from '../controllers/product.controller';
 import { errHandler } from '../utils/tryCatch';
+import { auth } from '../middlewares/auth.midd';
 
 const router = Router();
 
-router.post('/', errHandler(createProduct));
-router.get('/', errHandler(getProducts));
-router.post('/', errHandler(createProduct));
-router.post('/pagination', errHandler(getProductsLimit));
-router.get('/:id', errHandler(getProduct));
-router.put('/:id', errHandler(updateproduct));
-router.delete('/:id', errHandler(deleteproduct));
+router.post('/',auth, errHandler(createProduct));
+router.get('/',auth, errHandler(getProducts));
+router.post('/',auth, errHandler(createProduct));
+router.post('/pagination',auth, errHandler(getProductsLimit));
+router.get('/:id',auth, errHandler(getProduct));
+router.put('/:id',auth, errHandler(updateproduct));
+router.delete('/:id',auth, errHandler(deleteproduct));
 
 export default router;

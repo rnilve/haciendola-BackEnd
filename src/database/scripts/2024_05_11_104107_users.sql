@@ -8,7 +8,8 @@ create table if not exists users (
   address varchar(255) ,
   email  varchar(255),
   password  varchar(255) not null,
-  status integer default 1 not null
+  status integer default 1 not null,
+  security_question varchar(255)
 );
 
 insert into users (nickname, name,last_name, email, password)

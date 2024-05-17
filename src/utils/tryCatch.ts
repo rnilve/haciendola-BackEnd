@@ -87,6 +87,22 @@ const lstErr: ErrT[] = [
     },
     status: 400,
   },
+  {
+    code: 'BE105',
+    message: {
+      es: 'Respuesta Incorrecta',
+      en: 'Incorrect answer',
+    },
+    status: 400,
+  },
+  {
+    code: 'BE106',
+    message: {
+      es: 'Nombre de usuario incorrecto',
+      en: 'Incorrect user',
+    },
+    status: 400,
+  },
 ];
 
 const langOptions = {

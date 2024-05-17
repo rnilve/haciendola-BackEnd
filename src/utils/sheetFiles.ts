@@ -18,7 +18,6 @@ export async function sheetToData(uploadFile: UploadFileT) {
 
     return result;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.log(error);
     throw 'BE103';
   }
@@ -80,23 +79,20 @@ function processContentExcel(header: string[], rows: ExcelJS.RowValues[]) {
       row.length > ZERO &&
       row !== null &&
       row.length > ZERO
-  ); // Remove empty rows
+  ); 
 
-  const headers = getHeaderWithoutNulls(filteredRows); // Remove first row (headers) and save it
-  const nullCount = countNullValuesInArray(headers); // Count null values in headers
-  let processData: RowData[] = []; // Create response to data process
+  const headers = getHeaderWithoutNulls(filteredRows); 
+  const nullCount = countNullValuesInArray(headers);
+  let processData: RowData[] = [];
 
-  // Remove null values in rows
   filteredRows.forEach(
     (row) => Array.isArray(row) && row.splice(ZERO, nullCount)
   );
 
-  // Remove null values in headers
   Array.isArray(headers) &&
     headers.length > ZERO &&
     headers.splice(ZERO, nullCount);
 
-  // Complete rows with null values to match header length
   if (Array.isArray(headers)) {
     filteredRows.forEach((row) => {
       if (Array.isArray(row)) {
@@ -107,7 +103,6 @@ function processContentExcel(header: string[], rows: ExcelJS.RowValues[]) {
     });
   }
 
-  // Create json data with headers without blank values
   if (Array.isArray(headers)) {
     processData = filteredRows.map((row) => {
       if (Array.isArray(row)) {
@@ -125,7 +120,6 @@ function processContentExcel(header: string[], rows: ExcelJS.RowValues[]) {
     });
   }
 
-  // Create final json data with header selected by user
   const newDataProcess = processData.map((item) => {
     const newItem: { [key: string]: unknown } = {};
     header = header.length === ZERO ? (headers as string[]) : header;

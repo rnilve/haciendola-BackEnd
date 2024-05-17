@@ -14,6 +14,7 @@ export type UserT = {
   email: string;
   password: string;
   status?: number;
+  security_question?:string;
   rowCount?:number;
 };
 
