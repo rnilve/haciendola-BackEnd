@@ -19,7 +19,7 @@ password:admin
 
 
 # Una vez configurada la base de datos
-MIGRAMOS LAs TALAS CON : npm run db:migrate
+MIGRAMOS LAS TABLAS CON : npm run db:migrate
 MIGRAMOS EL ARCHIVO EXCEL: npm run db:data
 
 # LEVANTAMOS EL SERVIDOR
