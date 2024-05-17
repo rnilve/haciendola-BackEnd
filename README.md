@@ -8,17 +8,10 @@ En caso de presentar un error en la instalación de Docker por la versión wsl2,
 ejecutar docker-compose up
 
 # De otra forma crear una tabla en postgreSql con estos datos, presente en el archivo .env  (Opcional si no quieres usar docker)
-NODE_ENV=development
-PORT=3301
-SECRET=secret
-DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=postgres
 DB_NAME=haciendola
-DEFAULT_PASSWORD=password
-SECRET_PASSWORD=10
-HOST_FRONT=http://localhost:4200
 
 //CONTRASEÑA DE LA INSTANCIA DE POSTGRESQL  
 user:admin@admin.com
