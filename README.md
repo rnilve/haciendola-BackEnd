@@ -7,7 +7,7 @@ En caso de presentar un error en la instalación de Docker por la versión wsl2,
 # Una vez instalado docker
 ejecutar docker-compose up
 
-# De otra forma crear una tabla en postgreSql con estos datos, presente en el archivo .env, 
+# De otra forma crear una tabla en postgreSql con estos datos, presente en el archivo .env  (Opcional si no quieres usar docker)
 NODE_ENV=development
 PORT=3301
 SECRET=secret
